@@ -25,14 +25,16 @@ spring:
     multipart:
       max-file-size: 10MB #파일 업로드 요청시 크기 10MB 제한
       max-request-size: 100MB #파일 업로드 요청시 모든 파일 크기 합을 100MB로 제한
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 5000
+            readTimeout: 5000
+
+
 logging:
   level:
     org.hibernate.type: trace #콘솔창 조건에 바인딩 되는 값 조회 및 결과 출력
     com.app: debug # todo 패키지 수정
-
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
